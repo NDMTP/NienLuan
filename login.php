@@ -25,10 +25,10 @@ include "head.php"
 
 
 
-    <div class="page-contain login-page" style="margin-top: 300px;">
+    <div class="page-contain login-page">
 
         <!-- Main content -->
-        <div id="main-content" class="main-content">
+        <div id="main-content" class="main-content" style="margin-top: 300px;">
             <div class="container">
 
                 <div class="row">

@@ -1,3 +1,4 @@
+    
     <!-- HEADER -->
     <header id="header" class="header-area style-01 layout-01">
         <div class="header-top hidden-xs hidden-sm">
@@ -13,16 +14,22 @@
                     </ul>
                 </div>
                 <div class="top-bar right">
-                    <ul class="horizontal-menu">
-                        <li class="horz-menu-item currency">
-                            <select name="currency">
-                                <option value="eur">$ USD (Dollar)</option>
-                                <option value="usd" selected>đ VND (Việt Nam Đồng)</option>
-                                <option value="usd">£ GBP (Pound)</option>
-                                <option value="usd">¥ JPY (Yen)</option>
-                            </select>
-                        </li>
-                        <li><a href="login.php" class="login-link"><i class="biolife-icon icon-login"></i>Tài khoản của tôi</a></li>
+                       
+                <?php
+session_start();
+$is_logged_in = isset($_SESSION["email"]);
+
+if ($is_logged_in) {
+    
+    echo '<span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Chào mừng, ' . $_SESSION["hoten"] . '</span>';
+    echo '<a href="user.php" class="user-link"><i class="biolife-icon icon-login"></i></a>';
+    echo '<br><a href="doimk.php" class="login-link"></br><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Đổi mật khẩu     </span></a>';
+    echo '<a href="dangxuat.php" class="login-link"></i><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">    Đăng xuất</span></a>';
+}
+ else {
+    echo '<a href="login.php" class="login-link"><i class="biolife-icon icon-login"></i><span style="font-size: 14px; font-weight: 400; color: black; font-family: \'Manrope\', sans-serif;">Đăng nhập/Đăng ký</span></a>';
+}
+?>          
                     </ul>
                 </div>
             </div>
@@ -31,7 +38,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-2 col-md-6 col-xs-6">
-                        <a href="index.html" class="biolife-logo"><img src="assets/images/ndmtp.png" alt="biolife logo" width="170" height="36"></a>
+                        <a href="index.php" class="biolife-logo"><img src="assets/images/ndmtp.png" alt="biolife logo" width="170" height="36"></a>
                     </div>
                     <div class="col-lg-9 col-md-10 padding-top-2px">
                         <div class="header-search-bar layout-01 no-product-cat">
