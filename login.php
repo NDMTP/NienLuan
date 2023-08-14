@@ -33,35 +33,40 @@ include "head.php"
 
                 <div class="row">
 
-                    <!--Form Sign In-->
+                    <!--Form Đăng nhập-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="signin-container">
-                            <form action="#" name="frm-login" method="post">
+                            <h2>Đăng nhập</h2>
+                            <form action="dangnhap.php" name="frm-login" method="post">
                                 <p class="form-row">
                                     <label for="fid-name">Email:<span class="requite">*</span></label>
-                                    <input type="text" id="fid-name" name="email" value="" class="txt-input">
+                                    <input type="email" id="email" name="email" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-pass">Mật khẩu:<span class="requite">*</span></label>
-                                    <input type="email" id="fid-pass" name="matkhau" value="" class="txt-input">
+                                    <input type="password" id="matkhau" name="password" value="" class="txt-input">
                                 </p>
                                 <p class="form-row wrap-btn">
-                                    <button class="btn btn-submit btn-bold" type="submit">Đăng nhập</button>
-                                    <a href="#" class="link-to-help">Quên mật khẩu</a>
+                                    <button class="btn btn-submit btn-bold" type="submit" name="sb1">Đăng nhập</button>
+                                    <a href="doimk.php" class="link-to-help">Quên mật khẩu</a>
                                 </p>
                             </form>
+                            
+                            
                         </div>
                     </div>
+                    <!--Form Đăng kí-->
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="signin-container">
-                            <form action="#" name="frm-login" method="post">
+                        <h2>Đăng kí</h2>
+                            <form action="dangki.php" name="frm-login" method="post">
                                 <p class="form-row">
                                     <label for="fid-name">Email:<span class="requite">*</span></label>
-                                    <input type="text" id="fid-name" name="email" value="" class="txt-input">
+                                    <input type="email" id="fid-name" name="email" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-pass">Mật khẩu:<span class="requite">*</span></label>
-                                    <input type="email" id="fid-pass" name="matkhau" value="" class="txt-input">
+                                    <input type="password" id="fid-pass" name="matkhau" value="" class="txt-input">
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-name">Họ tên:<span class="requite">*</span></label>
@@ -77,7 +82,7 @@ include "head.php"
                                 </p>
 
                                 <p class="form-row wrap-btn">
-                                    <button class="btn btn-submit btn-bold" type="submit">Đăng ký</button>
+                                    <button class="btn btn-submit btn-bold" type="submit" name="sb">Đăng ký</button>
                                 </p>
                             </form>
                         </div>
@@ -92,7 +97,7 @@ include "head.php"
 
     </div>
     <?php
-    include "footer.php"
+    include"footer.php"
     ?>
     <!-- Scroll Top Button -->
     <a class="btn-scroll-top"><i class="biolife-icon icon-left-arrow"></i></a>
@@ -108,3 +113,4 @@ include "head.php"
 </body>
 
 </html>
+

@@ -3,7 +3,7 @@
 include("connect.php");
                 if(isset($_POST["sb1"])){
                     
-                    $sql="SELECT * FROM KHACH_HANG where KH_EMAIL='".$_POST["email"]."' AND password='".md5($_POST["psw1"])."'";
+                    $sql="SELECT * FROM nguoidung where email='".$_POST["email"]."' AND matkhau='".md5($_POST["password"])."'";
                     $result1 = $conn->query($sql);
                   // print_r($result1);
                     if($result1->num_rows>0){
@@ -11,13 +11,11 @@ include("connect.php");
                         $row = $result1->fetch_assoc();
                         
                         session_start();
-                        $_SESSION["name"] = $row["HOTEN"];
-                        $_SESSION["ngaysinh"]=$row["NAMSINH"];
-                        $_SESSION["email"]=$row["EMAIL"];
-                        $_SESSION["sdt"]=$row["SDT"];
+                        $_SESSION["email"] = $row["EMAIL"];
+                        $_SESSION["password"]=$row["MATKHAU"];
                         $_SESSION["diachi"]=$row["DIACHI"];
-                        $_SESSION["matkhau"]=$row["password"];
-                        $_SESSION["nghenghiep"]=$row["NGHENHIEP"];
+                        $_SESSION["hoten"]=$row["TEN"];
+                        $_SESSION["sdt"]=$row["SDT"];
                    
                         header('Location: index.php');
                      
