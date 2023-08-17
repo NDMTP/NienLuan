@@ -162,7 +162,7 @@
                                         <div class="image-container">
                                             <div class="product-thumb">
                                                 <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
-                                                    <img class="fit-image" src="assets/images/products/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                    <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
                                                 </a>
                                             </div>
                                         </div>
@@ -178,9 +178,9 @@
                                             </div> -->
                                             <div class="slide-down-box">
                                                 <div class="buttons">
-                                                    <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">Đặt hàng ngay</a>
+                                                    <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                     <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                    <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">Thêm vào giỏ hàng</a>
+                                                    <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -160,7 +160,7 @@ include "header.php"
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
                                     <a href="category-grid.php?loai=01" class="cat-link">
-                                        <img src="assets/images/products/traicay14.jpg" width="277" height="185" alt="">
+                                        <img src="assets/images/products/TC/traicay14.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
@@ -172,8 +172,8 @@ include "header.php"
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="category-grid.php?loai=03" class="cat-link">
-                                        <img src="assets/images/products/cai1.jpg" width="277" height="185"
+                                    <a href="category-grid.php?loai=02" class="cat-link">
+                                        <img src="assets/images/products/C/cai1.jpg" width="277" height="185"
                                             alt="">
                                     </a>
                                 </div>
@@ -187,7 +187,7 @@ include "header.php"
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
                                     <a href="category-grid.php?loai=04" class="cat-link">
-                                        <img src="assets/images/products/trung1.jpg" width="277" height="185"
+                                        <img src="assets/images/products/BOT/trung1.jpg" width="277" height="185"
                                             alt="">
                                     </a>
                                 </div>
@@ -200,8 +200,8 @@ include "header.php"
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="category-grid.php?loai=02" class="cat-link">
-                                        <img src="assets/images/products/tomhung.jpg" width="277" height="185" alt="">
+                                    <a href="category-grid.php?loai=03" class="cat-link">
+                                        <img src="assets/images/products/HS/tomhung.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
@@ -213,8 +213,8 @@ include "header.php"
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="category-grid.php?loai=05" class="cat-link">
-                                        <img src="assets/images/products/rau1.jpg" width="277" height="185"
+                                    <a href="category-grid.php?loai=09" class="cat-link">
+                                        <img src="assets/images/products/R/rau1.jpg" width="277" height="185"
                                             alt="">
                                     </a>
                                 </div>
@@ -227,12 +227,38 @@ include "header.php"
                         <li>
                             <div class="biolife-cat-box-item">
                                 <div class="cat-thumb">
-                                    <a href="category-grid.php?loai=07" class="cat-link">
-                                        <img src="assets/images/products/doannhanh1.jpg" width="277" height="185" alt="">
+                                    <a href="category-grid.php?loai=05" class="cat-link">
+                                        <img src="assets/images/products/DAN/doannhanh1.jpg" width="277" height="185" alt="">
                                     </a>
                                 </div>
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Đồ ăn nhanh</h4>
+                                    <span class="cat-number">(03 món)</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="biolife-cat-box-item">
+                                <div class="cat-thumb">
+                                    <a href="category-grid.php?loai=06" class="cat-link">
+                                        <img src="assets/images/products/T/thit4.jpg" width="277" height="185" alt="">
+                                    </a>
+                                </div>
+                                <a class="cat-info" href="#">
+                                    <h4 class="cat-name">Thịt</h4>
+                                    <span class="cat-number">(04 món)</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="biolife-cat-box-item">
+                                <div class="cat-thumb">
+                                    <a href="category-grid.php?loai=07" class="cat-link">
+                                        <img src="assets/images/products/H/hanh1.jpg" width="277" height="185" alt="">
+                                    </a>
+                                </div>
+                                <a class="cat-info" href="#">
+                                    <h4 class="cat-name">Hành</h4>
                                     <span class="cat-number">(03 món)</span>
                                 </a>
                             </div>
@@ -1463,7 +1489,7 @@ include "header.php"
                                                 <div class="image-container">
                                                     <div class="product-thumb">
                                                         <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
-                                                            <img class="fit-image" src="assets/images/products/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -1511,7 +1537,7 @@ include "header.php"
                                                 <div class="image-container">
                                                     <div class="product-thumb">
                                                         <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
-                                                            <img class="fit-image" src="assets/images/products/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -1519,10 +1545,10 @@ include "header.php"
                                                     <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                                     <div class="price">
                                                         <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+1000) ?> đ</span></del>
                                                     </div>
                                                     <div class="shipping-info" style="margin-top: -15px;">
-                                                        <p class="shipping-day">Sản phẩm bán chạy</p>
+                                                    <p class="shipping-day">Sản phẩm bán chạy</p>
                                                     </div>
                                                     <div class="slide-down-box">
                                                         
@@ -1544,7 +1570,7 @@ include "header.php"
                                     data-slick='{"rows":1 ,"arrows":true,"dots":false,"infinite":true,"speed":400,"slidesMargin":10,"slidesToShow":4, "responsive":[{"breakpoint":1200, "settings":{ "slidesToShow": 4}},{"breakpoint":992, "settings":{ "slidesToShow": 3, "slidesMargin":20 }},{"breakpoint":768, "settings":{ "slidesToShow": 2,"rows":2, "slidesMargin":15 }}]}'>
                                     <?php
 
-                                        $query = "SELECT * FROM sanpham ";
+                                        $query = "SELECT * FROM sanpham limit 4";
 
                                         $result = $conn->query($query);
                                             if ($result->num_rows > 0) {
@@ -1560,7 +1586,7 @@ include "header.php"
                                                 <div class="image-container">
                                                     <div class="product-thumb">
                                                         <a href="product-detail.php?id=<?php echo $row['MASP'] ?>" class="link-to-product">
-                                                            <img class="fit-image" src="assets/images/products/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
+                                                            <img class="fit-image" src="assets/images/products/<?php echo $masp ?>/<?php echo $row['LINKANH'] ?>" alt="dd" width="270" height="270" class="product-thumnail">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -1568,7 +1594,7 @@ include "header.php"
                                                     <h4 class="product-title"><a href="#" class="pr-name"><?php echo $row['TENSP'] ?></a></h4>
                                                     <div class="price">
                                                         <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
-                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
+                                                        <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+1000) ?> đ</span></del>
                                                     </div>
                                                     <div class="shipping-info" style="margin-top: -15px;">
                                                         <p class="shipping-day">Sản phẩm khuyến mãi</p>
