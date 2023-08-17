@@ -15,6 +15,9 @@ include("connect.php");
                         $_SESSION["password"]=$row["MATKHAU"];
                         $_SESSION["diachi"]=$row["DIACHI"];
                         $_SESSION["hoten"]=$row["TEN"];
+                        $fullname = explode(' ', $row['TEN']);
+                        $lastname = end($fullname);
+                        $_SESSION["lname"] = $lastname;
                         $_SESSION["sdt"]=$row["SDT"];
                    
                         header('Location: index.php');

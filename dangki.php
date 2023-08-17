@@ -43,8 +43,13 @@
                         $_SESSION["sdt"]=$row["DIACHI"];
 
                     
-                        header('Location: index.php');
-                   
+                       
+                            echo '<script language="javascript">
+                           alert("Đã đăng ký thành công vui lòng đăng nhập lại");
+                           window.location.href = "index.php"; // Chuyển hướng về trang chủ
+                             </script>';
+                        
+                        
                       //  header('Location: index.php');
                    }
                    else{

@@ -1,6 +1,5 @@
 <?php
 include("connect.php");
-session_start();
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +24,8 @@ include("header.php");
     <!-- Navbar Start -->
 
 
-    <div id="main-content" class="main-content" style="margin-top: 300px;">
-            <div class="container">
+    <div id="main-content" class="main-content">
+            <div class="container" style="margin-top: 300px;">
 
                 <div class="row">
 
