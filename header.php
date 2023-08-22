@@ -500,8 +500,69 @@ echo "<pre>$output</pre>";
                                     <button type="submit" class="btn-submit">go</button>
                                 </form>
                             </div>
-
+                    <?php
+                        if (isset($_SESSION['email'])){
+                    ?>
+                        <div class="minicart-block row">
+                            <div class="minicart-contain">
+                                <a href="javascript:void(0)" class="link-to">
+                                    <span class="icon-qty-combine">
+                                        <i class="icon-cart-mini biolife-icon"></i>
+                                        <span class="qty"><?php echo $_SESSION['slsp'] ?></span>
+                                    </span>
+                                </a>
+                                <div class="cart-content">
+                                    <div class="cart-inner">
+                                        <?php
+                                        if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                                            foreach ($_SESSION['cart'] as $item) {
+                                                $sql = "select * from sanpham ";
+                                                $result = $conn->query($sql);
+                                                $row = $result->fetch_assoc();
+                                                $string = $row['MASP'];
+                                                $masp = preg_replace('/[0-9]/', '', $string);
+                                        ?>
+                                        <ul class="products">
+                                            <li>
+                                                <div class="minicart-item">
+                                                    <div class="thumb">
+                                                        <a href="#"><img src="assets/images/products/<?php echo $masp."/".$row['LINKANH']?>" width="90" height="90" alt="img"></a>
+                                                    </div>
+                                                    <div class="left-info">
+                                                        <div class="product-title"><a href="#" class="product-name"><?php echo $row['TENSP']?></a></div>
+                                                        <div class="price">
+                                                            <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?></span></ins>
+                                                            <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?></span></del>
+                                                        </div>
+                                                        <div class="qty">
+                                                            <label for="cart[id123][qty]">Số lượng:</label>
+                                                            <input type="number" class="input-qty" name="cart[id123][qty]" id="cart[id123][qty]" value="<?php echo $item['quant'] ?>" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <?php 
+                                            }
+                                        ?>
+                                        <p class="btn-control">
+                                            <a href="#" class="btn view-cart">Thanh toán</a>
+                                            <a href="cart-page.php" class="btn">Chỉnh sửa giỏ</a>
+                                        </p>
+                                        <?php
+                                            } else {
+                                                echo '<p style="margin-top: 15px; font-size: 18px !important">Không có sản phẩm nào trong giỏ hàng</p>';
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                        }
+                    ?>
                             <div>
+                                
                                 <?php
 
                                 $is_logged_in = isset($_SESSION["email"]);

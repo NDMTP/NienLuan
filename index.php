@@ -313,7 +313,7 @@ include "header.php"
                                     </div>
                                     <p class="measure">đồng/kilogram</p>
                                     <div class="buttons">
-                                        <a href="#" class="btn add-to-cart-btn" tabindex="-1">Thêm vào giỏ hàng</a>
+                                    <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" class="btn add-to-cart-btn" tabindex="-1">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             </div>
