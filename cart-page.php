@@ -136,15 +136,7 @@
                                 <form action="thongtinmuahang.php" method="get">
 
                                     <div class="subtotal-line"><b class="stt-name">Quận <br><span style="color: red !important;" class="sub">(*Chỉ giao trong các quận sau:)</span></span></b></div>
-                                        <!-- <input type="radio" value="">
-                                            <span  style="color:#252525; font-size: 17px !important; margin-left: 5px;">Quận Ninh Kiều </span><br>
-                                        </input>
-                                        <input type="radio" value="">
-                                            <span  style="color:#252525; font-size: 17px !important; margin-left: 5px;">Quận Bình Thuỷ</span> <br>
-                                        </input>
-                                        <input type="radio" value="">
-                                            <span  style="color:#252525; font-size: 17px !important; margin-left: 5px;">Quận Cái Răng</span><br>
-                                        </input>-->
+
                                         <div>
                                             <div style="width: 100% !important;" class="form_combobox w-100">
                                                 <select required style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect">

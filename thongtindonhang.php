@@ -52,23 +52,21 @@ include "connect.php"
                                 <?php
                                     if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                                         echo '<table style="margin-top: 10px !important;">';
-                                        echo '<tr><th>Tên SP</th><th>Size</th><th>Số lượng</th><th>Đơn giá</th><th>Tổng tiền</th></tr>';
+                                        echo '<tr><th>Tên SP</th><th>Số lượng</th><th>Đơn giá</th><th>Tổng tiền</th></tr>';
                                         $tongtien = 0;
                                         foreach ($_SESSION['cart'] as $item) {
-                                            $sql = "select * from sanpham s 
-                                                    join sizecuasanpham sz on sz.MASP=s.MASP
-                                                    where sz.MASP = '{$item['id']}'";
+                                            $sql = "select * from sanpham where MASP = '{$item['id']}'";
                                             $result = $conn->query($sql);
                                             $sp = $result->fetch_assoc();
                                                 
                                             echo '<tr>';
                                             echo '<td>' . $sp['TENSP'] . '</td>';
-                                            echo '<td>' . $item['size'] . '</td>';
+                                            
                                             echo '<td>' . $item['quant'] . '</td>';
-                                            echo '<td>' . number_format($sp['DONGIASP']) . ' đ</td>';
-                                            echo '<td>' . number_format($sp['DONGIASP']*$item['quant']) . ' đ</td>';
+                                            echo '<td>' . number_format($sp['DONGIABANSP']) . ' đ</td>';
+                                            echo '<td>' . number_format($sp['DONGIABANSP']*$item['quant']) . ' đ</td>';
                                             echo '</tr>';
-                                            $tongtien += ($sp['DONGIASP']*$item['quant']);
+                                            $tongtien += ($sp['DONGIABANSP']*$item['quant']);
                                         }
                                     
                                         echo '</table>';

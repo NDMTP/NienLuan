@@ -14545,7 +14545,14 @@ body.open-quickview-block .biolife-quickview-block{
         transition: background-color 1.2s ease;
     }
 }
-
+.form_combobox {
+    display: inline-block;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #b8b8b8;
+    padding: 0 5px;
+    border-radius: 9999px;
+}
 @media ( max-width: 1199px) {
     .products-list.biolife-carousel.nav-none-after-1k2 .slick-arrow.biolife-icon{
         display: none !important;
