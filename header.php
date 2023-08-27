@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 
 <!-- HEADER -->
 <header id="header" class="header-area style-01 layout-01">
@@ -471,44 +468,39 @@ echo "<pre>$output</pre>";
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-2 col-sm-12 col-xs-12">
-                    <div class="logo-for-mobile hidden-lg hidden-md">
-                        <a href="index.html" class="biolife-logo"><img src="assets/images/logo-biolife-1.png"
-                                alt="biolife logo" width="135" height="36"></a>
+                <div class="col-lg-1 col-md1 col-xs-3">
+                <div class="biolife-cart-info">
+                    <div class="mobile-search">
+                        <a href="javascript:void(0)" class="open-searchbox"><i class="biolife-icon icon-search"></i></a>
+                        <div class="mobile-search-content">
+                            <form action="#" class="form-search" name="mobile-seacrh" method="get">
+                                <a href="#" class="btn-close"><span class="biolife-icon icon-close-menu"></span></a>
+                                <input type="text" name="s" class="input-text" value="" placeholder="Tìm ở đây...">
+                                <select name="category">
+                                    <option value="-1" selected>All Categories</option>
+                                    <option value="vegetables">Vegetables</option>
+                                    <option value="fresh_berries">Fresh Berries</option>
+                                    <option value="ocean_foods">Ocean Foods</option>
+                                    <option value="butter_eggs">Butter & Eggs</option>
+                                    <option value="fastfood">Fastfood</option>
+                                    <option value="fresh_meat">Fresh Meat</option>
+                                    <option value="fresh_onion">Fresh Onion</option>
+                                    <option value="papaya_crisps">Papaya & Crisps</option>
+                                    <option value="oatmeal">Oatmeal</option>
+                                </select>
+                                <button type="submit" class="btn-submit">go</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="biolife-cart-info center-align-mobile">
-                        <div class="mobile-search">
-                            <a href="javascript:void(0)" class="open-searchbox"><i
-                                    class="biolife-icon icon-search"></i></a>
-                            <div class="mobile-search-content">
-                                <form action="#" class="form-search" name="mobile-seacrh" method="get">
-                                    <a href="#" class="btn-close"><span class="biolife-icon icon-close-menu"></span></a>
-                                    <input type="text" name="s" class="input-text" value=""
-                                        placeholder="Search here...">
-                                    <select name="category">
-                                        <option value="-1" selected>All Categories</option>
-                                        <option value="vegetables">Vegetables</option>
-                                        <option value="fresh_berries">Fresh Berries</option>
-                                        <option value="ocean_foods">Ocean Foods</option>
-                                        <option value="butter_eggs">Butter & Eggs</option>
-                                        <option value="fastfood">Fastfood</option>
-                                        <option value="fresh_meat">Fresh Meat</option>
-                                        <option value="fresh_onion">Fresh Onion</option>
-                                        <option value="papaya_crisps">Papaya & Crisps</option>
-                                        <option value="oatmeal">Oatmeal</option>
-                                    </select>
-                                    <button type="submit" class="btn-submit">go</button>
-                                </form>
-                            </div>
                     <?php
                         if (isset($_SESSION['email'])){
                     ?>
-                        <div class="minicart-block row">
+                        <div class="minicart-block row" style="margin-top: 10px;">
                             <div class="minicart-contain">
                                 <a href="javascript:void(0)" class="link-to">
                                     <span class="icon-qty-combine">
                                         <i class="icon-cart-mini biolife-icon"></i>
-                                        <span class="qty"><?php echo $_SESSION['slsp'] ?></span>
+                                        
                                     </span>
                                 </a>
                                 <div class="cart-content">
@@ -516,7 +508,7 @@ echo "<pre>$output</pre>";
                                         <?php
                                         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                                             foreach ($_SESSION['cart'] as $item) {
-                                                $sql = "select * from sanpham ";
+                                                $sql = "SELECT * FROM sanpham WHERE MASP = '{$item['id']}'";
                                                 $result = $conn->query($sql);
                                                 $row = $result->fetch_assoc();
                                                 $string = $row['MASP'];
@@ -561,75 +553,66 @@ echo "<pre>$output</pre>";
                     <?php
                         }
                     ?>
-                            <div>
-                                
-                                <?php
 
-                                $is_logged_in = isset($_SESSION["email"]);
-
-                                if ($is_logged_in) {
-                                    ?>
-                                    <div class="hidden-sm hidden-xs m-2">
-                                        <div class="primary-menu">
-                                            <ul class="menu biolife-menu clone-main-menu clone-primary-menu"
-                                                id="primary-menu" data-menuname="main menu">
-                                                <li class="menu-item menu-item-has-children has-megamenu">
-                                                    <a href="#" class="menu-name" data-title="Shop"><span>Chào mừng,
-                                                            <?php echo $_SESSION["lname"] ?>
-                                                        </span></a>
-                                                    <div class="wrap-megamenu" style="right: 0 !important;">
-                                                        <div class="mega-content">
-                                                            <div class="">
-                                                                <div class="wrap-custom-menu vertical-menu-2">
-                                                                    <h4 class="menu-title">Tài khoản</h4>
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="user.php">Thông tin
-                                                                                cá nhân</a></li>
-                                                                        <li class="menu-item"><a href="doimk.php">Đổi mật
-                                                                                khẩu</a></li>
-                                                                        <li class="menu-item"><a href="dangxuat.php">Đăng
-                                                                                xuất</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <?php
-                                } else {
-                                    ?>
-                                    <div class="hidden-sm hidden-xs m-2">
-                                        <div class="primary-menu">
-                                            <ul class="menu biolife-menu clone-main-menu clone-primary-menu"
-                                                id="primary-menu" data-menuname="main menu">
-                                                <li class="menu-item">
-                                                    <a href="login.php" class="menu-name"><span>Đăng nhập/Đăng ký
-                                                        </span></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </div>
-
-
-
-                        <div class="mobile-menu-toggle">
-                            <a class="btn-toggle" data-object="open-mobile-menu" href="javascript:void(0)">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </a>
-                        </div>
+                    <div class="mobile-menu-toggle">
+                        <a class="btn-toggle" data-object="open-mobile-menu" href="javascript:void(0)">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-xs-3">
+                <div>
+                    <?php
+
+                    $is_logged_in = isset($_SESSION["email"]);
+
+                    if ($is_logged_in) {
+                        ?>
+                            <div class="hidden-sm hidden-xs m-2">
+                                <div class="primary-menu">
+                                    <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
+                                        <li class="menu-item menu-item-has-children has-megamenu">
+                                            <a href="#" class="menu-name" data-title="Shop" ><span>Chào mừng, <?php echo  $_SESSION["lname"] ?></span></a>
+                                            <div class="wrap-megamenu" style="right: 0 !important;">
+                                                <div class="mega-content">
+                                                    <div class="">
+                                                        <div class="wrap-custom-menu vertical-menu-2">
+                                                            <h4 class="menu-title">Tài khoản</h4>
+                                                            <ul class="menu">
+                                                                <li class="menu-item" ><a href="user.php">Thông tin cá nhân</a></li>
+                                                                <li class="menu-item" ><a href="doimk.php">Đổi mật khẩu</a></li>
+                                                                <li class="menu-item" ><a href="dangxuat.php">Đăng xuất</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>                
+                            
+                        <?php
+                    }
+                    else {
+                        ?>
+                            <div class="hidden-sm hidden-xs m-2">
+                                <div class="primary-menu">
+                                    <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
+                                        <li class="menu-item">
+                                            <a href="login.php" class="menu-name"><span>Đăng nhập/Đăng ký  </span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
             </div>
         </div>
     </div>

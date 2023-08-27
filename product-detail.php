@@ -8,7 +8,7 @@
 <body class="biolife-body" style="margin-top: 300px;">
 
     <!-- Preloader -->
-    <div id="biof-loading">
+    <!-- <div id="biof-loading">
         <div class="biof-loading-center">
             <div class="biof-loading-center-absolute">
                 <div class="dot dot-one"></div>
@@ -16,7 +16,7 @@
                 <div class="dot dot-three"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- HEADER -->
     <?php
@@ -46,6 +46,7 @@
             <div id="main-content" class="main-content">
                 
                 <!-- summary info -->
+                <form action="themvaogiohang.php?from=pd" method="get" id="myForm">
                 <div class="sumary-product single-layout">
                     <?php
                         $spid = $_GET['id'];
@@ -86,8 +87,9 @@
                             </div>
                         </div>
                         <div class="buttons">
-                            <a href="<?php echo $hr1 ?>" class="btn add-to-cart-btn">Thêm vào giỏ hàng</a>
-                            <a href="<?php echo $hr1 ?>" class="btn buy-now-btn">Đặt hàng ngay</a>
+                            <input type="hidden" name="pdid" value="<?php echo $spid ?>">
+                            <button type="submit" name="sb_giohang" style="min-width: 100% !important;" class="btn add-to-cart-btn">Thêm vào giỏ hàng</button>
+                            <button type="submit" name="sb_dathang" style="min-width: 100% !important;" class="btn buy-now-btn">Đặt hàng ngay</button>
                         </div>
                         <!-- <div class="location-shipping-to">
                             <span class="title">Ship to:</span>
@@ -119,7 +121,18 @@
                     </div>
                 </div>
 
+                <script>
+                    document.getElementById("myForm").addEventListener("submit", function(event) {
+                        const submitButton = event.submitter;
 
+                        if (submitButton.name === "sb_giohang") {
+                            this.action = "themvaogiohang.php?from=pd"; // Thay đổi trang khi nhấp nút "Submit for Page 1"
+                        } else if (submitButton.name === "sb_dathang") {
+                            this.action = "thanhtoan.php"; // Thay đổi trang khi nhấp nút "Submit for Page 2"
+                        }
+
+                        // Tiếp tục thực hiện submit form theo action đã thay đổi
+                    });
 
                 <!-- related products -->
                 <div class="product-related-box single-layout">
@@ -157,7 +170,7 @@
                                             <p class="message"><?php echo $row1['MOTA'] ?></p>
                                             <div class="buttons">
                                                 <a href="#" class="btn wishlist-btn"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                                                <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>add to cart</a>
+                                                <a href="#" class="btn add-to-cart-btn"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>Thêm vào giỏ hàng</a>
                                                 <a href="#" class="btn compare-btn"><i class="fa fa-random" aria-hidden="true"></i></a>
                                             </div>
                                         </div>

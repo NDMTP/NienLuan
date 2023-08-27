@@ -180,7 +180,8 @@
                                                 <div class="buttons">
                                                     <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                     <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                    <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                    <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&qty12554=1" 
+                                                                style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                 </div>
                                             </div>
                                         </div>

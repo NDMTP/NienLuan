@@ -313,7 +313,7 @@ include "header.php"
                                     </div>
                                     <p class="measure">đồng/kilogram</p>
                                     <div class="buttons">
-                                    <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&size=<?php echo $row['MASIZE'] ?>&qty12554=1" class="btn add-to-cart-btn" tabindex="-1">Thêm vào giỏ hàng</a>
+                                        <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&qty12554=1" class="btn add-to-cart-btn" tabindex="-1">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -409,7 +409,8 @@ include "header.php"
                                                         <div class="buttons">
                                                             <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                             <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                            <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                            <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&qty12554=1" 
+                                                                style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -458,7 +459,8 @@ include "header.php"
                                                         <div class="buttons">
                                                             <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                             <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                            <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                            <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&qty12554=1" 
+                                                                style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -507,7 +509,8 @@ include "header.php"
                                                         <div class="buttons">
                                                             <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
                                                             <a href="#" style="padding: 0 !important; width: 10px !important;" class="btn"></a>
-                                                            <a href="#" style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
+                                                            <a href="themvaogiohang.php?from=index&pdid=<?php echo $row['MASP'] ?>&qty12554=1" 
+                                                                style="padding: 10px 5px !important; " class="btn add-to-cart-btn">thêm vào giỏ</a>
                                                         </div>
                                                     </div>
                                                 </div>

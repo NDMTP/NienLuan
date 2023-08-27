@@ -54,7 +54,7 @@
                                     <tbody>
                                     <?php
                                         foreach ($_SESSION['cart'] as $key => $item) {
-                                            $sql = "select * from sanpham ";
+                                            $sql = "select * from sanpham where MASP = '{$item['id']}'";
                                             $result = $conn->query($sql);
                                             $row = $result->fetch_assoc();
                                             $string = $row['MASP'];
