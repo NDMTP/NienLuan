@@ -150,16 +150,7 @@
                                         <div id="phuong">
                                             
                                         </div>
-                                        <script>
-                                            document.addEventListener("DOMContentLoaded", function() {
-                                                const areaSelect = document.getElementById("areaSelect");
 
-                                                areaSelect.addEventListener("change", function() {
-                                                    const phuong =document.getElementById('phuong');
-                                                    phuong.innerHTML = '<div style="width: 100% !important;" class="form_combobox w-100" id="phuong"><select style="color: black !important; margin-left: 10px !important; " name="area" id="areaSelect"></select></div>';
-                                                });
-                                            });
-                                        </script>
                                     <div style="margin-top: 5px !important;" class="btn-checkout">
                                         <button style="width: 100%;" type="submit" class="btn checkout">Đặt hàng</button>
                                     </div>
@@ -186,7 +177,7 @@
     <script src="assets/js/jquery-3.4.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.countdown.min.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <!-- <script src="assets/js/jquery.nice-select.min.js"></script> -->
     <script src="assets/js/jquery.nicescroll.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/biolife.framework.js"></script>

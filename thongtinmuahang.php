@@ -74,7 +74,7 @@ include "connect.php"
                                 </p>
                                 <p class="form-row">
                                     <label for="fid-phuong">Phường:<span class="requite">*</span></label>
-                                    <select required style="border: 1px solid #e3e3e3 !important; padding: 10px; width: 100% !important; background-color:white;" name="phuong" id="fid_phuong">
+                                    <select required style="color:black; border: 1px solid #e3e3e3 !important; padding: 10px; width: 100% !important; background-color:white;" name="phuong" id="fid_phuong">
                                         <option disabled selected value="">Chọn Phường</option>
                                         <?php
                                             $p = "select * from khuvuc where MAKHUVUC like '$kv%'";
