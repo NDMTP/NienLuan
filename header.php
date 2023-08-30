@@ -29,16 +29,12 @@
                         <form action="#" class="form-search" name="desktop-seacrh" method="get">
                             <input type="text" name="s" class="input-text" value="" placeholder="Bạn đang tìm gì...">
                             <button type="submit" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
+                            
                         </form>
 
                     </div>
-                    <?php
-// Gọi mã Python từ tệp app.py và in kết quả
-$python_script = 'python3 C:\xampp\htdocs\NienLuan\kaggle_ai\app.py'; // Thay đổi thành đường dẫn thực tế
-$output = shell_exec($python_script);
-echo "<pre>$output</pre>";
-?>
 
+                    
                     <div class="live-info">
                         <p class="telephone"><i class="fa fa-phone" aria-hidden="true"></i><b class="phone-number">(+84)
                                 939 123 4567</b></p>
