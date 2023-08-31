@@ -12,7 +12,7 @@ include "connect.php"
 <body class="biolife-body">
 
     <!-- Preloader -->
-    <!-- <div id="biof-loading">
+    <div id="biof-loading">
         <div class="biof-loading-center">
             <div class="biof-loading-center-absolute">
                 <div class="dot dot-one"></div>
@@ -20,7 +20,7 @@ include "connect.php"
                 <div class="dot dot-three"></div>
             </div>
         </div>
-    </div> -->
+    </div>
 
 <?php
 include "header.php"
@@ -89,9 +89,9 @@ include "header.php"
 
                     <div class="grid-panel-item left-content">
                         <div class="biolife-banner grid biolife-banner__grid type-02 bn-elm-01">
-                            <a href="#" class="media-contain media-01"></a>
+                            <a href="product-detail.php?id=NE01" class="media-contain media-01"></a>
                             <div class="banner-contain">
-                                <a href="#" class="cat-name">Nước ép trái cây</a>
+                                <a href="product-detail.php?id=NE01" class="cat-name">Nước ép trái cây</a>
                             </div>
                         </div>
                     </div>
@@ -110,13 +110,13 @@ include "header.php"
                                 <div class="biolife-banner grid biolife-banner__grid type-02 bn-elm-03">
                                     <a href="product-detail.php?id=TC12" class="media-contain media-03"></a>
                                     <div class="banner-contain">
-                                        <a href="#" class="cat-name">Việt Quốc</a>
+                                        <a href="product-detail.php?id=TC12" class="cat-name">Việt Quốc</a>
                                     </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="biolife-banner grid biolife-banner__grid type-02 bn-elm-04">
-                                    <a href="#" class="media-contain media-04"></a>
+                                    <a href="product-detail.php?id=TC13" class="media-contain media-04"></a>
                                     <div class="banner-contain">
                                         <a href="product-detail.php?id=TC13" class="cat-name">Mâm Xôi</a>
                                     </div>
@@ -124,9 +124,9 @@ include "header.php"
                             </li>
                             <li>
                                 <div class="biolife-banner grid biolife-banner__grid type-02 bn-elm-05">
-                                    <a href="#" class="media-contain  media-05"></a>
+                                    <a href="product-detail.php?id=TC21" class="media-contain  media-05"></a>
                                     <div class="banner-contain">
-                                        <a href="#" class="cat-name">Nho</a>
+                                        <a href="product-detail.php?id=TC21" class="cat-name">Nho</a>
                                     </div>
                                 </div>
                             </li>
@@ -165,7 +165,7 @@ include "header.php"
                                 </div>
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Trái cây</h4>
-                                    <span class="cat-number">(15 món)</span>
+                                    <span class="cat-number">(26 món)</span>
                                 </a>
                             </div>
                         </li>
@@ -260,6 +260,19 @@ include "header.php"
                                 <a class="cat-info" href="#">
                                     <h4 class="cat-name">Hành</h4>
                                     <span class="cat-number">(03 món)</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="biolife-cat-box-item">
+                                <div class="cat-thumb">
+                                    <a href="category-grid.php?loai=07" class="cat-link">
+                                        <img src="assets/images/products/NE/nuocep1.jpg" width="277" height="185" alt="">
+                                    </a>
+                                </div>
+                                <a class="cat-info" href="#">
+                                    <h4 class="cat-name">Nước ép</h4>
+                                    <span class="cat-number">(06 món)</span>
                                 </a>
                             </div>
                         </li>
@@ -1304,31 +1317,7 @@ include"footer.php"
         </div>
     </div>
 
-    <!--Newletter Popup-->
-    <div id="biolife-newsletter-popup" class="modal fade biolife-popup biolife-newsletter-popup-contain" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal"><span class="biolife-icon icon-close-menu"></span></button>
-                    <div class="newsletter-block popup-layout newsletter-block_popup-layout">
-                        <div class="inner-content">
-                            <div class="wrap-title">
-                                <span class="sup-title">Đăng ký để nhận ưu đãi</span>
-                                <h3 class="newslt-title">50<sup>%</sup> SALE</h3>
-                            </div>
-                            <div class="form-content">
-                                <form action="#" name="new-letter-foter" method="post">
-                                    <input type="email" class="input-text email" value="" placeholder="Nhập email của bạn...">
-                                    <button type="submit" class="bnt-submit" name="ok">Nhận giảm giá 50% ngay</button>
-                                    <a href="javascript:void(0)" class="close dismiss-newsletter" data-dismiss="modal">Không, cảm ơn. Tôi sẽ đăng kí sau</a>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!--Quickview Popup-->
     <div id="biolife-quickview-block" class="biolife-quickview-block">

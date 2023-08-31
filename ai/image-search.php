@@ -14,7 +14,7 @@
     $new_filename = 'img_to_search.png';
     rename($filename, $new_filename);
 
-    system('python ai.py');
+    system('echo "yes" | python ai.py');
 
     $imageDirectory = '/NienLuan/assets/images/products/TC/';
 
