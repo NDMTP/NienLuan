@@ -26,26 +26,34 @@
                 </div>
                 <div class="col-lg-9 col-md-10 padding-top-6px">
     <div class="header-search-bar layout-01 no-product-cat">
-        <form action="ai\image-search.php" class="form-search" name="desktop-search" method="post" enctype="multipart/form-data">
+        <form action="ai/image-search.php" class="form-search" name="desktop-search" method="post" enctype="multipart/form-data">            
             <input type="file" id="img" name="img" accept="image/*" style="display: none;">
             <input type="text" name="s" class="input-text" value="" placeholder="Bạn đang tìm gì....">
             <label for="img">
-                <button type="button" class="btn-submit" onclick="chooseImage()">
-                    <i style="margin-right: 35px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" fill="currentColor" class="bi bi-camera" viewBox="0 0 15 35">
-                            <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
-                            <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-                        </svg>
-                    </i>
-                </button>
-            </label>
-            
-            <button type="button" class="btn-submit"  onclick="uploadAndSearch()"><i class="biolife-icon icon-search"></i></button>
+                        <button type="button" class="btn-submit" onclick="chooseImage()">
+                            <i style="margin-right: 35px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" fill="currentColor" class="bi bi-camera" viewBox="0 0 15 35">
+                                    <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+                                    <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                                </svg>
+                            </i>
+                        </button>
+                    </label>    
+            <button type="button" onclick="uploadAndSearch()" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
         </form>
     </div>
 </div>
 
 <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        // Lắng nghe sự kiện keydown trên trường nhập văn bản
+        document.querySelector('input[name="s"]').addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của Enter (submit form)
+                window.location.href = "test.php"; // Chuyển đến trang test.php
+            }
+        });
+    });
     function chooseImage() {
         var imageInput = document.getElementById('img');
         imageInput.click();
@@ -99,14 +107,17 @@
                                                     <div class="wrap-custom-menu vertical-menu">
                                                         <h4 class="menu-title">Trái cây</h4>
                                                         <ul class="menu">
-                                                            <li><a href="#">Combo trái cây</a></li>
-                                                            <li><a href="#">Cam</a></li>
-                                                            <li><a href="#">Chuối</a></li>
-                                                            <li><a href="#">Táo</a></li>
-                                                            <li><a href="#">Nho</a></li>
-                                                            <li><a href="#">Lê</a></li>
-                                                            <li><a href="#">Trái cây sấy khô</a></li>
-                                                        </ul>
+                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='01'LIMIT 10";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
+                                            </ul>
                                                     </div>
                                                 </div>
 
@@ -120,20 +131,20 @@
                                                                 <div class="contain-product none-overlay">
                                                                     <div class="product-thumb">
                                                                         <a href="#" class="link-to-product">
-                                                                            <img src="assets/images/products/p-08.jpg"
+                                                                            <img src="assets/images/products/TC/traicay1.jpg"
                                                                                 alt="dd" width="270" height="270"
                                                                                 class="product-thumnail">
                                                                         </a>
                                                                     </div>
                                                                     <div class="info">
                                                                         <b class="categories">Trái cây</b>
-                                                                        <h4 class="product-title"><a href="#"
-                                                                                class="pr-name">Combo trái cây</a></h4>
+                                                                        <h4 class="product-title"><a href="product-detail.php?id=TC1"
+                                                                                class="pr-name">Sầu riêng</a></h4>
                                                                         <div class="price">
                                                                             <ins><span class="price-amount"><span
-                                                                                        class="currencySymbol">đ</span>85.000</span></ins>
+                                                                                        class="currencySymbol">đ</span>99.000</span></ins>
                                                                             <del><span class="price-amount"><span
-                                                                                        class="currencySymbol">đ</span>95.000</span></del>
+                                                                                        class="currencySymbol">đ</span>109.000</span></del>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -142,20 +153,20 @@
                                                                 <div class="contain-product none-overlay">
                                                                     <div class="product-thumb">
                                                                         <a href="#" class="link-to-product">
-                                                                            <img src="assets/images/products/p-34.jpg"
+                                                                            <img src="assets/images/products/TC/traicay21.jpg"
                                                                                 alt="dd" width="270" height="270"
                                                                                 class="product-thumnail">
                                                                         </a>
                                                                     </div>
                                                                     <div class="info">
                                                                         <b class="categories">Trái cây</b>
-                                                                        <h4 class="product-title"><a href="#"
-                                                                                class="pr-name">Táo</a></h4>
+                                                                        <h4 class="product-title"><a href="product-detail.php?id=TC21"
+                                                                                class="pr-name">Nho</a></h4>
                                                                         <div class="price">
                                                                             <ins><span class="price-amount"><span
-                                                                                        class="currencySymbol">đ</span>85.000</span></ins>
+                                                                                        class="currencySymbol">đ</span>75.000</span></ins>
                                                                             <del><span class="price-amount"><span
-                                                                                        class="currencySymbol">đ</span>95.000</span></del>
+                                                                                        class="currencySymbol">đ</span>85.000</span></del>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -163,15 +174,15 @@
                                                             <li class="product-item">
                                                                 <div class="contain-product none-overlay">
                                                                     <div class="product-thumb">
-                                                                        <a href="#" class="link-to-product">
-                                                                            <img src="assets/images/products/p-35.jpg"
+                                                                        <a href="product-detail.php?id=TC14" class="link-to-product">
+                                                                            <img src="assets/images/products/TC/traicay14.jpg"
                                                                                 alt="dd" width="270" height="270"
                                                                                 class="product-thumnail">
                                                                         </a>
                                                                     </div>
                                                                     <div class="info">
                                                                         <b class="categories">Trái cây</b>
-                                                                        <h4 class="product-title"><a href="#"
+                                                                        <h4 class="product-title"><a href="product-detail.php?id=TC14"
                                                                                 class="pr-name">Cam</a></h4>
                                                                         <div class="price">
                                                                             <ins><span class="price-amount"><span
@@ -221,15 +232,17 @@
                                                     <div class="wrap-custom-menu vertical-menu">
                                                         <h4 class="menu-title">Cải</h4>
                                                         <ul class="menu">
-                                                            <li><a href="#">Cải Bó Xôi</a></li>
-                                                            <li><a href="#">Cải Chíp</a></li>
-                                                            <li><a href="#">Cải Dưa</a></li>
-                                                            <li><a href="#">Cải Ngọt </a></li>
-                                                            <li><a href="#">Cải Thảo</a></li>
-                                                            <li><a href="#">Cải Thìa</a></li>
-                                                            <li><a href="#">Cải Xoong</a></li>
-
-                                                        </ul>
+                                                <?php
+                                                    $sql = "SELECT * FROM sanpham where maloai='02'LIMIT 10";
+                                                    $result = $conn->query($sql);
+                                                        if ($result->num_rows > 0) {
+                                                        $result = $conn->query($sql);
+                                                        $result_all = $result -> fetch_all(MYSQLI_ASSOC);
+                                                        foreach ($result_all as $row) {
+                                                ?>
+                                                <li><a href="product-detail.php?id=<?php echo $row['MASP'] ?>"><?php echo $row['TENSP'] ?></a></li>
+                                                <?php }} ?>
+                                            </ul>
                                                     </div>
                                                 </div>
                                                 <div

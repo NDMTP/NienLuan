@@ -8,15 +8,15 @@
 <body class="biolife-body" style="margin-top: 300px;">
 
     <!-- Preloader -->
-    <div id="biof-loading">
-        <div class="biof-loading-center">
-            <div class="biof-loading-center-absolute">
-                <div class="dot dot-one"></div>
-                <div class="dot dot-two"></div>
-                <div class="dot dot-three"></div>
+        <!-- <div id="biof-loading">
+            <div class="biof-loading-center">
+                <div class="biof-loading-center-absolute">
+                    <div class="dot dot-one"></div>
+                    <div class="dot dot-two"></div>
+                    <div class="dot dot-three"></div>
+                </div>
             </div>
-        </div>
-    </div>
+        </div> -->
 
     <!-- HEADER -->
     <?php require 'header.php' ?>
@@ -120,7 +120,13 @@
                                 // Truy vấn lấy dữ liệu sản phẩm từ cơ sở dữ liệu
                                 $offset = ($current_page - 1) * $productsPerPage;
 
-                                $sql = " WHERE 1";
+                                $myfile = fopen("ai/data.txt", "r");
+        
+                                while (!feof($myfile)) {
+                                    $line = fgets($myfile);
+                                    // echo $line.PHP_EOL."<br>";
+
+                                $sql = " WHERE LINKANH like '".trim($line.PHP_EOL)."'";
                                 if (isset($_GET['loai']) && $_GET['loai'] != "all"){
                                     $sql = $sql." AND MALOAI = ".$_GET['loai'];
                                 }
@@ -189,9 +195,8 @@
                                 </li>
                             <?php
                                     }
-                                } else {
-                                    echo "Không tìm thấy sản phẩm phù hợp";
-                                }
+                                } 
+                            }
                             ?>
 
                             </ul>
