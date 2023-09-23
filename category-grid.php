@@ -22,17 +22,6 @@
     <?php require 'header.php' ?>
 
 
-    <!--Navigation section-->
-    <!-- <div class="container">
-        <nav class="biolife-nav">
-            <ul>
-                <li class="nav-item"><a href="index-2.html" class="permal-link">Home</a></li>
-                <li class="nav-item"><a href="#" class="permal-link">Natural Organic</a></li>
-                <li class="nav-item"><span class="current-page">Fresh Fruit</span></li>
-            </ul>
-        </nav>
-    </div> -->
-
     <div class="page-contain category-page no-sidebar">
         <div class="container">
             <div class="row">
@@ -43,6 +32,7 @@
                     <div class="block-item recently-products-cat md-margin-bottom-39">
                         
                     </div>
+                    
 
                     <div class="product-category grid-style">
 
@@ -85,6 +75,12 @@
                                             <button class="btn-fill">Lọc</button>
                                         </div>
                                         <p class="btn-for-mobile"><button type="submit" class="btn-submit">Lọc</button></p>
+                                        <?php
+                                            if (isset($_GET['search'])){
+                                                $s = $_GET['search'];
+                                            } else $s = '';
+                                        ?>
+                                        <input type="hidden" name="search" value="<?php echo $s ?>">
                                     </form>
                                 </div>
                             </div>
@@ -99,18 +95,18 @@
                                             <option value="lowest">Giá thấp đến cao</option>
                                         </select>
                                     </div>
-                                    <!-- <div class="selector-item viewmode-selector">
-                                        <a href="category-grid-left-sidebar.html" class="viewmode grid-mode active"><i class="biolife-icon icon-grid"></i></a>
-                                        <a href="category-list-left-sidebar.html" class="viewmode detail-mode"><i class="biolife-icon icon-list"></i></a>
-                                    </div> -->
+
                                 </div>
                             </div>
                         </div>
 
+                        
                         <div class="row">
                             <ul class="products-list">
 
+                            
                             <?php
+                                
                                 // Số sản phẩm trên mỗi trang
                                 $productsPerPage = 12;
 
@@ -121,13 +117,16 @@
                                 $offset = ($current_page - 1) * $productsPerPage;
 
                                 $sql = " WHERE 1";
+
+                                
+                                
                                 if (isset($_GET['loai']) && $_GET['loai'] != "all"){
                                     $sql = $sql." AND MALOAI = ".$_GET['loai'];
                                 }
                                 if (isset($_GET['gia'])){
                                     switch ($_GET['gia']) {
                                         case 'loc-gia-1':
-                                            $sql = $sql." AND DONGIABANSP BETWEEN 25000 AND 35000";
+                                            $sql = $sql." AND DONGIABANSP BETWEEN 20000 AND 35000";
                                             break;
                                         case 'loc-gia-2':
                                             $sql = $sql." AND DONGIABANSP BETWEEN 35000 AND 100000";
@@ -144,6 +143,15 @@
                                     
                                 }
 
+
+                                $sql .= " AND TENSP like '%".$s."%'";
+
+                                
+                                if (isset($_GET['search'])){
+                                    $s = $_GET['search'];
+                                } else $s = '';
+                                $sql .= " AND TENSP like '%".$s."%'";   
+                                
                                 $sql = $sql." LIMIT $offset, $productsPerPage";
 
                                 $query = "SELECT * FROM sanpham".$sql;
@@ -172,10 +180,7 @@
                                                 <ins><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']) ?> đ</span></ins>
                                                 <del><span class="price-amount"><span class="currencySymbol"></span><?php echo number_format($row['DONGIABANSP']+10000) ?> đ</span></del>
                                             </div>
-                                            <!-- <div class="shipping-info">
-                                                <p class="shipping-day">3-Day Shipping</p>
-                                                <p class="for-today">Pree Pickup Today</p>
-                                            </div> -->
+
                                             <div class="slide-down-box">
                                                 <div class="buttons">
                                                     <a href="#" style="padding: 10px 5px !important; margin-right: 5px !important;" class="btn add-to-cart-btn">đặt hàng ngay</a>
@@ -193,6 +198,7 @@
                                     echo "Không tìm thấy sản phẩm phù hợp";
                                 }
                             ?>
+                            
 
                             </ul>
                         </div>

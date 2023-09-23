@@ -28,7 +28,7 @@
     <div class="header-search-bar layout-01 no-product-cat">
         <form action="ai/image-search.php" class="form-search" name="desktop-search" method="post" enctype="multipart/form-data">            
             <input type="file" id="img" name="img" accept="image/*" style="display: none;">
-            <input type="text" name="s" class="input-text" value="" placeholder="Bạn đang tìm gì....">
+            <input type="text" name="search" class="input-text" value="<?php if(isset($_GET['search'])) echo $_GET['search'] ?>" placeholder="Bạn đang tìm gì....">
             <label for="img">
                         <button type="button" class="btn-submit" onclick="chooseImage()">
                             <i style="margin-right: 35px;">
@@ -45,15 +45,20 @@
 </div>
 
 <script>
-        document.addEventListener("DOMContentLoaded", function () {
-        // Lắng nghe sự kiện keydown trên trường nhập văn bản
-        document.querySelector('input[name="s"]').addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
-                event.preventDefault(); // Ngăn chặn hành động mặc định của Enter (submit form)
-                window.location.href = "test.php"; // Chuyển đến trang test.php
+document.addEventListener("DOMContentLoaded", function() {
+    // Lắng nghe sự kiện keydown trên trường nhập văn bản
+    var searchInput = document.querySelector('input[name="search"]');
+    searchInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của Enter (submit form)
+            var searchValue = searchInput.value.trim(); // Lấy giá trị của trường nhập văn bản và loại bỏ khoảng trắng thừa
+            if (searchValue.length > 0) { // Kiểm tra xem có từ khóa tìm kiếm không rỗng
+                // Chuyển đến trang hiển thị sản phẩm với tham số tìm kiếm là searchValue
+                window.location.href = "category-grid.php?search=" + encodeURIComponent(searchValue);
             }
-        });
+        }
     });
+
     function chooseImage() {
         var imageInput = document.getElementById('img');
         imageInput.click();
@@ -63,7 +68,9 @@
         var form = document.querySelector('.form-search');
         form.submit();
     }
+});
 </script>
+
 
 
                     
