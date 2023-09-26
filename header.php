@@ -25,38 +25,77 @@
                             width="170" height="36"></a>
                 </div>
                 <div class="col-lg-9 col-md-10 padding-top-6px">
-    <div class="header-search-bar layout-01 no-product-cat">
-        <form action="ai/image-search.php" class="form-search" name="desktop-search" method="post" enctype="multipart/form-data">            
-            <input type="file" id="img" name="img" accept="image/*" style="display: none;">
-            <input type="text" name="search" class="input-text" value="<?php if(isset($_GET['search'])) echo $_GET['search'] ?>" placeholder="Bạn đang tìm gì....">
-            <label for="img">
-                        <button type="button" class="btn-submit" onclick="chooseImage()">
-                            <i style="margin-right: 35px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" fill="currentColor" class="bi bi-camera" viewBox="0 0 15 35">
-                                    <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
-                                    <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-                                </svg>
-                            </i>
-                        </button>
-                    </label>    
-            <button type="button" onclick="uploadAndSearch()" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
-        </form>
-    </div>
+                <div class="header-search-bar layout-01 no-product-cat">
+    <!-- Form tìm kiếm bằng văn bản -->
+    <form action="category-grid.php" class="form-search" name="text-search" method="get">
+        <input type="text" name="search" class="input-text" value="<?php if(isset($_GET['search'])) echo $_GET['search'] ?>" placeholder="Bạn đang tìm gì....">
+        <button type="submit" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
+    </form>
+
+    <!-- Form tìm kiếm bằng hình ảnh -->
+    <form action="ai/image-search.php" class="form-upload" name="image-search" method="post" enctype="multipart/form-data">            
+        <input type="file" id="img" name="img" accept="image/*" style="display: none;">
+        <label for="img">
+            <button type="button" class="btn-submit" onclick="chooseImage()">
+                <i style="margin-right: 35px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="40" fill="currentColor" class="bi bi-camera" viewBox="0 0 15 35">
+                        <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+                        <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                    </svg>
+                </i>
+            </button>
+        </label>
+        <button type="button" onclick="uploadAndSearch()" class="btn-submit"><i class="biolife-icon icon-search"></i></button>
+    </form>
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Lắng nghe sự kiện keydown trên trường nhập văn bản
-    var searchInput = document.querySelector('input[name="search"]');
-    searchInput.addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của Enter (submit form)
-            var searchValue = searchInput.value.trim(); // Lấy giá trị của trường nhập văn bản và loại bỏ khoảng trắng thừa
-            if (searchValue.length > 0) { // Kiểm tra xem có từ khóa tìm kiếm không rỗng
-                // Chuyển đến trang hiển thị sản phẩm với tham số tìm kiếm là searchValue
-                window.location.href = "category-grid.php?search=" + encodeURIComponent(searchValue);
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lắng nghe sự kiện keydown trên trường nhập văn bản
+        document.querySelector('input[name="search"]').addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của Enter (submit form)
+                var form = document.querySelector('.form-search');
+                form.submit();
             }
-        }
+        });
+    });
+
+    function chooseImage() {
+        var imageInput = document.getElementById('img');
+        imageInput.click();
+    }
+
+    function uploadAndSearch() {
+        var form = document.querySelector('.form-upload');
+        form.submit();
+    }
+    
+    // Xử lý sự kiện khi tải lên hình ảnh
+    document.getElementById('img').addEventListener('change', function() {
+        var form = document.querySelector('.form-upload');
+        form.submit();
+    });
+</script>
+
+
+
+
+
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Lắng nghe sự kiện keydown trên trường nhập văn bản
+        document.querySelector('input[name="s"]').addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của Enter (submit form)
+                var searchValue = this.value.trim(); // Lấy giá trị của trường nhập văn bản và loại bỏ khoảng trắng thừa
+                if (searchValue.length > 0) { // Kiểm tra xem có từ khóa tìm kiếm không rỗng
+                    // Thực hiện tìm kiếm bằng văn bản tại đây, ví dụ:
+                    alert("Tìm kiếm bằng văn bản: " + searchValue);
+                }
+            }
+        });
     });
 
     function chooseImage() {
@@ -68,8 +107,9 @@ document.addEventListener("DOMContentLoaded", function() {
         var form = document.querySelector('.form-search');
         form.submit();
     }
-});
-</script>
+</script> -->
+
+
 
 
 
